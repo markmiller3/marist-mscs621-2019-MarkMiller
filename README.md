@@ -188,7 +188,8 @@ docker run --name meat-order-app -p 5000:5000 meat-order-app
 >This is running the built image and will now be accessible on by entering the url http://0.0.0.0:5000/. 
 > The --name is setting the name of the container and -p is setting to port of the container.
 
-The output will look similar to this: 
+The output will look similar to:
+![alt text](Readme_Images/docker-run.png)
 
 
 5. 

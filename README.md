@@ -160,7 +160,8 @@ Create the API:
 14. Save and expose the API
 
 Click [here](https://portal.us-south.apigw.cloud.ibm.com/portal?artifactId=9e1186cf-5f8c-407e-9763-7ba1ed99fffd) for a link to post your entries to the database.
-Please Note: If you create a new you must replace the API url in the api_call python file with the new one you just created
+
+Please Note: If you create a new database you must replace the API url in the api_call.py file with the new url one you just created.
 
 ----------------------------------------------------------------------------------------
 ## Deployment - Local 
@@ -170,4 +171,11 @@ Please Note: If you create a new you must replace the API url in the api_call py
 ```shell
 git clone https://markmiller3/marist-mscs621-2019-MarkMiller.git
 ```
+2. Once the git clone has finsihed change directories to directory you cloned the repository
+3. From inside of the repository directory, run the following command
+```shell
+docker build --tag meat-order-app .
+```
+> This will build the docker image with the given name
+
 

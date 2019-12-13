@@ -209,4 +209,15 @@ docker login --username=yourusername
 ```
 >Yourusername is the username of your docker hub. After executing this it will ask for a password. Input your password and it should return 'successful login'.
 
-3. 
+3. Once we login we have to tag the docker image, this requires finding the image-id from issuing docker images. To tag the image run the command below and input the doker-id for docker-id1234 and replace yourusername with your docker hub username.
+```shell
+docker tag docker-id1234 yourusername/meat-order-app:first
+```
+>This will tag the image and allow us to push the iamge to dockerhub
+
+4. To push the image to docker hub run
+```shell
+docker push yourusername/meat-order-app
+```
+Everything above should return a similar output to:
+

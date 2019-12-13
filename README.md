@@ -275,7 +275,33 @@ gcloud auth configure-docker
 ```shell
 docker tag meat-order-app gcr.io/[PROJECT-ID]/meat-order-app
 ```
->This will tag the docker image so we can push it to the container Register. Be sure to change the [PROJECT-ID] to your specific projects id. For this project my project-id was meat-order-application. So we ran the command as docker tag meat-order-app gcr.io/meat-order-application/meat-order-app
+>This will tag the docker image so we can push it to the container Register. Be sure to change the [PROJECT-ID] to your specific projects id. For this project my project-id was meat-order-application. 
+The command for this project looked like 'docker tag meat-order-app gcr.io/meat-order-application/meat-order-app'
 
+11. Next we need to push the image to the container Register. Run the command below to push it.
+```shell
+docker push gcr.io/meat-order-application/meat-order-app
+```
+>This command will push the image to the container register so we can later use it in our kubernetes cluster
+
+12. Now we need to create our deployment for kubernetes. Run the following command to create it
+```shell
+kubectl create deployment meat-order-app --image=gcr.io/meat-order-application/meat-order-app
+```
+> With the creation of the deployment and the image set to the Docker Registry we set, we can now expose the deployment.
+
+13. To expose the deployment we nee to run the command below
+```shell
+kubectl expose deployment meat-order-app --type LoadBalancer --port 5000 --target-port 5000
+```
+>This is where we actually expose the deployment. We set the type to a loadbalancer which means we are creating a compute engine load balancer for the container. We then specify the intial public port as 5000 and the target port which routes the traffic to port 5000.
+
+14. Once we expose the deployment we need to run the command to view the services
+```shell
+kubectl get services
+```
+>Once this shows the information regarding the clusters we can then access the cluster by utilizing the external ip and the port we specified when we exposed the deployment.
+Below is a sample output from this project
+![alt key]()
 
 

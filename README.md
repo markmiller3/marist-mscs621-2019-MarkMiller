@@ -33,6 +33,8 @@ Docker is used throught this setup, please ensure it is installed on your device
 #### The first step in recreating this porject is to setup a the Database on IBM Cloud Cloudant
 You can follow a guide [here](https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-serverless-api-webapp)
 
+>The guide above will provide a high level overiew of creating the cloudant database, creating the neccessary functions, and creating the api. Below is a quick overview of the guide.
+
 #### IBM Cloudant and Functions Configuration
 Creating the Cloudant Database:
 1. Navigate to Cloudant Database (you may need to search for it)
@@ -53,7 +55,7 @@ Creating a Cloud Function:
 2. On the pane to the left, click **Actions** then **Create**
 3. Create the action with a name like **Prepare-Meat-Items**
 4. Select **Node.js** as the Runtime
-5. Insert the Code Provided Below
+5. Delete the given code and insert the code below 
 ```shell
 function main(params) {
   if (!params.id || !params.item_name || params.price) {
@@ -94,5 +96,64 @@ Accessing Database Credentials for Second Action in the Sequence:
 5. Insert the **Host, Password, and Username** from credentials into the last step above
 6. Insert **Database** which is the name of the cloudant database
 
-Create Sequence of Actions to Retrive the Entries
-1. 
+Create Sequence of Actions to Retrive the Entries:
+1. Under **Functions** click **Create** new Node.js action under default package
+2. Create a name for the action like **Meat-Items-Input**
+3. Delete the given code and insert the code below
+```shell
+function main(params) {
+  return {
+    params: {
+      include_docs: true
+    }
+  };
+}
+```
+4. Click **Save**
+
+Add an Action to a Sequence:
+1. Click **Enclosing Sequences, Add to Sequence** then **Create New**
+2. Give an **Action Name** like **Read-Meat-Items-Sequence**
+3. Click **Create and Add**
+4. Click on the sequence **Read-Meat-Items-Sequence**, we just created
+5. Click **Add**
+6. Under **My Bindings** choose **Meat-Item-Bindind** and click **Add** 
+7. Click **Add** again
+8. Under **Create New** enter a name like **Format-Meat-Items**, then click **Create and Add**
+9. Click on the **Format-Meat-Items** and replace the code given with the code below
+```shell
+const md5 = require('spark-md5');
+
+function main(params) {
+  return {
+    entries: params.rows.map((row) => { return {
+      id: row.doc.id,
+      item_name: row.doc.item_name,
+      price: row.doc.price
+    }})
+  };
+}
+```
+10. Click on **Save**
+
+Invoke the Sequence:
+1. Click on **Actions** then click on the sequence **Read-Meat-Items-Sequence**
+2. Click on **Save** and **Invoke**
+
+Create the API:
+1. Go to **Actions**
+2. Click on the sequence **Read-Meat-Items-Sequence**
+3. Next to name click **Web Action**, check **Enable as Web Action** and then **Save**
+4. Do the same as above for the sequence **Meat-Items-Sequence**
+5. Go to **APIs** under Functions
+6. Click **Create a Cloud Function API
+7. Set the name such as **Meat-Items** and the base path to /Meat-Items
+8. Click **Create operation**
+9. Set path to **/entries** set verb to **GET**
+10. Select the action **Read-Meat-Items-Sequence**
+11. Click **Create operation**
+12. Set path to **/entries** set verb to **PUT**
+13. Select the action **Meat-Items-Sequence**
+14. Save and expose the API
+
+Please Note: If you create a new you must replace the API url in the api_call python file with the new one you just created

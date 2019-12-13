@@ -49,7 +49,7 @@ Creating the Cloud Functions
 3. Create the action with a name like **Prepare-Meat-Items**
 4. and select **Node.js** as the Runtime
 5. Insert the Code Provided Below
-'''shell
+```shell
 function main(params) {
   if (!params.id || !params.item_name || params.price) {
     return Promise.reject({ error: 'No item Found'});
@@ -64,5 +64,5 @@ function main(params) {
     }
   };
 }
-'''
+```
 

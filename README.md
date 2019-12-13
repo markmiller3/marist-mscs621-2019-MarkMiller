@@ -1,4 +1,4 @@
- ## Malafy's Meat Processing LLC Order Assistant Application
+ # Malafy's Meat Processing LLC Order Assistant Application
  ------------------------------------------------------------------
  This application is desgined to aid a customer of Malafys Meat Processing with providing a simple and easy way to order meat. This project idea was given to me by a fellow professor who wanted an easier way ordering his meat. Handling high amounts of meat, makes the processing frustrating and tedious. 
  
@@ -18,4 +18,4 @@
 
 -------------------------------------------------------------------
 ## Prerequisites and Important Info
-# Signup for Cloud Services
+### Signup for Cloud Services

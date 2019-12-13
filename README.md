@@ -237,3 +237,45 @@ You can view the docker hub I published while creating this project at [Docker H
 
 --------------------------------------------------------------------------------------
 ## Deployment - Running the Application in Google Cloud
+> This section will go over how to deploy a kubernetes cluster, post to google container registery, and access it once setup.
+
+1. Create a new Project in the Google Cloud Platform
+   - Give it a name like **Meat-Order-Application**
+   - This will take a minute or two to finish
+   
+2. Click the dropdown next to Google Cloud Platform and click your newly created Project
+
+3. Create a Kubernetes Cluster underneath this Project
+   - Give the cluster a name **meat-application-cluster**
+   - Give it a zone like **us-east1-b**
+   - Leave everything else the same
+   - Click to create cluster
+   - Wait until the cluster is complete
+   
+4. Once the cluster has finshed click connect then **run in Cloud Shell**
+> This will bring up the Cloud Shell where we can interact with the cluster and create our kubernetes pods
+
+5. Run the git clone command so we can access the repository within the cloud shell
+```shell
+git clone https://github.com/markmiller3/marist-mscs621-2019-MarkMiller.git
+```
+6. Change Directory to the Repoistories Directory
+
+7. To build the docker image we will run the command below
+```shell
+docker build --tag meat-order-app .
+```
+
+8. In order to push and pull images we need to configure docker to use gcloud command line tool to to authenticate requests to the Container Registry. To do this run the command
+```shell
+gcloud auth configure-docker
+```
+
+10. In order to use the docker image in kubernetes we need to add it to the Container Registry. Run the code below
+```shell
+docker tag meat-order-app gcr.io/[PROJECT-ID]/meat-order-app
+```
+>This will tag the docker image so we can push it to the container Register. Be sure to change the [PROJECT-ID] to your specific projects id. For this project my project-id was meat-order-application. So we ran the command as docker tag meat-order-app gcr.io/meat-order-application/meat-order-app
+
+
+

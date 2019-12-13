@@ -47,7 +47,7 @@ Creating the Cloud Functions
 1. Navigate to Cloud Functions
 2. On the pane to the left, click **Actions** then **Create**
 3. Create the action with a name like **Prepare-Meat-Items**
-4. and select **Node.js** as the Runtime
+4. Select **Node.js** as the Runtime
 5. Insert the Code Provided Below
 ```shell
 function main(params) {
@@ -65,4 +65,13 @@ function main(params) {
   };
 }
 ```
+6. Click Save
 
+Add another Action to the Sequence
+1. Click on **Enclosing Sequences** in the left pane
+2. Click **Add to Sequence**
+3. Enter a name for the sequence like **Meat-Items-Sequence**
+4. Click **Create and Add**
+
+Adding a Second Action to the Sequence
+1.

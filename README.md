@@ -177,8 +177,9 @@ git clone https://markmiller3/marist-mscs621-2019-MarkMiller.git
 docker build --tag meat-order-app .
 ```
 > This will build the docker image with the given tag meat-order-app
+
 The output will look similar to:
-!(Readme Images/docker-build-local.png)
+![](Readme Images/docker-build-local.png)
 
 4. To run the docker image execute the following command
 ```shell

@@ -191,5 +191,22 @@ docker run --name meat-order-app -p 5000:5000 meat-order-app
 The output will look similar to:
 ![alt text](Readme_Images/docker-run.png)
 
+5. To look at the container running we issue
+```shell
+docker container ls
+```
 
-5. 
+#### Pushing the Docker Image to Dockerhub
+1. Once we created the image, we can view the image by running
+```shell
+docker images
+```
+>This will show the images we have created along with the image id, which is important in pushing the image to docker hub.
+
+2. Login into docker hub by issuing the following command
+```shell
+docker login --username=yourusername
+```
+>Yourusername is the username of your docker hub. After executing this it will ask for a password. Input your password and it should return 'successful login'.
+
+3. 

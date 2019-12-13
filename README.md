@@ -176,6 +176,11 @@ git clone https://markmiller3/marist-mscs621-2019-MarkMiller.git
 ```shell
 docker build --tag meat-order-app .
 ```
-> This will build the docker image with the given name
+> This will build the docker image with the given tag meat-order-app
 
-
+4. To run the docker image execute the following command
+```shell
+docker run --name meat-order-app -p 5000:5000 meat-order-app
+```
+>This is running the built image and will now be accessible on by entering the url http://0.0.0.0:5000/. 
+> The --name is setting the name of the container and -p is setting to port of the container.

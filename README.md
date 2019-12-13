@@ -31,6 +31,9 @@ Docker is used throught this setup, please ensure it is installed on your device
 ------------------------------------------------------------------
 ## Configurations
 #### The first step in recreating this porject is to setup a the Database on IBM Cloud Cloudant
+
+***Note: This is only if you want to recreate the project, if you are downloading the provided one you can skip to the deployment section.
+
 You can follow a guide [here](https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-serverless-api-webapp)
 
 >The guide above will provide a high level overiew of creating the cloudant database, creating the neccessary functions, and creating the api. Below is a quick overview of the guide.
@@ -156,4 +159,5 @@ Create the API:
 13. Select the action **Meat-Items-Sequence**
 14. Save and expose the API
 
+Click [here](https://portal.us-south.apigw.cloud.ibm.com/portal?artifactId=9e1186cf-5f8c-407e-9763-7ba1ed99fffd) for a link to post your entries to the database.
 Please Note: If you create a new you must replace the API url in the api_call python file with the new one you just created

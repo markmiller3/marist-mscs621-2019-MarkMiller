@@ -37,13 +37,18 @@ You can follow a guide [here](https://cloud.ibm.com/docs/tutorials?topic=solutio
 Creating the Cloudant Database:
 1. Navigate to Cloudant Database (you may need to search for it)
 2. Start by creating a Cloudant database
-    - Give the database a name like **example-db**
+    - Give the database a name like **Meat-Items-db**
     - Select the region you would like
     - Ensure you are using the Lite plan (free tier)
     - Make sure you use **Use both legacy credentials and IAM** for Available authentication methods
 3. Create the Cloudant Database
 
-Creating the Cloud Functions
+Create Service Credentials for Database:
+1. Under the Database we just created, like on **Service Credentials**
+2. Click **New Credential**
+3. Click **Add**
+
+Creating a Cloud Function:
 1. Navigate to Cloud Functions
 2. On the pane to the left, click **Actions** then **Create**
 3. Create the action with a name like **Prepare-Meat-Items**
@@ -67,11 +72,27 @@ function main(params) {
 ```
 6. Click Save
 
-Add another Action to the Sequence
+Add another Action to the Sequence:
 1. Click on **Enclosing Sequences** in the left pane
 2. Click **Add to Sequence**
 3. Enter a name for the sequence like **Meat-Items-Sequence**
 4. Click **Create and Add**
 
-Adding a Second Action to the Sequence
-1.
+Adding a Second Action to the Sequence:
+1. Click on the recent action we created above (**Meat-Items-Sequence**) and click **Add**
+2. Select **Use Public**,**Cloudant** and choose **create document** under **Actions**
+3. Click create **New Binding**
+4. Give a name like **Meat-Item-Binding**
+5. For Cloud Instance choose **Input Own Credentials**
+6. Fill in your credentials for database (see next section for instructions on how to get there)
+
+Accessing Database Credentials for Second Action in the Sequence:
+1. Go to **Resource List** in the left hand pane
+2. Click **Service**, **Meat-Items-db**
+3. Click **Service Credentials** in the left pane
+4. Click **view crednetials** service-credentials-1
+5. Insert the **Host, Password, and Username** from credentials into the last step above
+6. Insert **Database** which is the name of the cloudant database
+
+Create Sequence of Actions to Retrive the Entries
+1. 

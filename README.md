@@ -32,7 +32,7 @@ Docker is used throught this setup, please ensure it is installed on your device
 ## Configurations
 #### The first step in recreating this porject is to setup a the Database on IBM Cloud Cloudant
 
-***Note: This is only if you want to recreate the project, if you are downloading the provided one you can skip to the deployment section.
+***Note: This is only if you want to recreate the project, if you are downloading the provided one you can skip to the deployment section.***
 
 You can follow a guide [here](https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-serverless-api-webapp)
 

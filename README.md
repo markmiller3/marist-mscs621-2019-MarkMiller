@@ -30,7 +30,7 @@ Docker is used throught this setup, please ensure it is installed on your device
 
 ------------------------------------------------------------------
 ## Configurations
-#### The first step in recreating this porject is to setup a the Database on IBM Cloud Cloudant
+### The first step in recreating this project is to setup a the Database on IBM Cloud Cloudant
 
 ***Note: This is only if you want to recreate the project, if you are downloading the provided one you can skip to the deployment section.***
 
@@ -161,3 +161,13 @@ Create the API:
 
 Click [here](https://portal.us-south.apigw.cloud.ibm.com/portal?artifactId=9e1186cf-5f8c-407e-9763-7ba1ed99fffd) for a link to post your entries to the database.
 Please Note: If you create a new you must replace the API url in the api_call python file with the new one you just created
+
+----------------------------------------------------------------------------------------
+## Deployment - Local 
+>This section is going to walkthrough the steps need to deploy the web application locally on your device. This section will also cover posting the container to docker hub.
+
+1. Run a git clone of this repository to get acess to all the required files you will need.
+```shell
+git clone https://markmiller3/marist-mscs621-2019-MarkMiller.git
+```
+

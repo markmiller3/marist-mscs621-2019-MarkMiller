@@ -179,7 +179,7 @@ docker build --tag meat-order-app .
 > This will build the docker image with the given tag meat-order-app
 
 The output will look similar to:
-![alt text](Readme_Images/docker-build-local.png)
+![alt text](Readme Images/docker-build-local.png)
 
 4. To run the docker image execute the following command
 ```shell

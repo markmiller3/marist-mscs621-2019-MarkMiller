@@ -220,5 +220,5 @@ docker tag docker-id1234 yourusername/meat-order-app:first
 docker push yourusername/meat-order-app
 ```
 Everything above should return a similar output to:
-![alt text](Readme_Images/Screen Shot 2019-12-13 at 3.08.41 PM.png)
+![alt text](Readme_Images/Docker_Push.png)
 

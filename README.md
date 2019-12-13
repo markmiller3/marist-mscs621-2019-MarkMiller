@@ -34,7 +34,7 @@ Docker is used throught this setup, please ensure it is installed on your device
 You can follow a guide [here](https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-serverless-api-webapp)
 
 #### IBM Cloudant and Functions Configuration
-Creating the Cloudant Database
+Creating the Cloudant Database:
 1. Navigate to Cloudant Database (you may need to search for it)
 2. Start by creating a Cloudant database
     - Give the database a name like **example-db**
@@ -42,4 +42,27 @@ Creating the Cloudant Database
     - Ensure you are using the Lite plan (free tier)
     - Make sure you use **Use both legacy credentials and IAM** for Available authentication methods
 3. Create the Cloudant Database
+
+Creating the Cloud Functions
+1. Navigate to Cloud Functions
+2. On the pane to the left, click **Actions** then **Create**
+3. Create the action with a name like **Prepare-Meat-Items**
+4. and select **Node.js** as the Runtime
+5. Insert the Code Provided Below
+'''shell
+function main(params) {
+  if (!params.id || !params.item_name || params.price) {
+    return Promise.reject({ error: 'No item Found'});
+  }
+
+  return {
+    doc: {
+      createdAt: new Date(),
+       id: params.id,
+       item_name: params.item_name,
+       price: params.price
+    }
+  };
+}
+'''
 

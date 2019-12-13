@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+{# This is the template that asks for the basic info on your order. #}
+<div class="jumbotron" style="padding-top:30px;padding-bottom:30px;">
+    <h3 style="text-decoration:underline;">Malafy's Meat Processing LLC</h3>
+    <p style="margin:0px;padding:0px;">In order to help you identify the cost distribution of your meat</p>
+    <p style="margin:0px;padding:0px;"> Please provide the amount of meat you have in the form below.</p>
+    <p style="color:rgb(165, 28, 28)">Note: If your amount is not rounded, it will automatically round to the nearest whole number.</p>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{form.total_pounds.label}}{{form.total_pounds()}}
+        {{form.submit()}}
+    </form>
+</div>
+{% endblock %}

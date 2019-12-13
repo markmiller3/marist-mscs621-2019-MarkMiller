@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+{# This is the template that displays the item list#}
+<div class="jumbotron" style="padding-top:30px;padding-bottom:30px;">
+    <h3 style="text-decoration:underline;">Malafy's Meat Processing LLC</h3>
+    <h4>Product Items:</h4>
+    <p style="margin:0px;padding:0px;">Below is a list of the items you may purchase.</p>
+    <p style="margin:0px;padding:0px;">Please click the link of the item you would like to buy.</p>
+    <p style="margin:0px;padding:0px;"> When you are finished, please click Review Order.</p>
+</div>
+<div class="list-group" style="margin:10px;">
+    <a href="{{url_for('item1_pounds.item1_info')}}" class="list-group-item list-group-item-action">Venison Ground with Added Fat</a>
+    <a href="{{url_for('item2_pounds.item2_info')}}" class="list-group-item list-group-item-action">Venison Breakfast Sausage (Bulk)</a>
+    <a href="{{url_for('item3_pounds.item3_info')}}" class="list-group-item list-group-item-action">Venison Sweet Sausage (Bulk)</a>
+    <a href="{{url_for('item4_pounds.item4_info')}}" class="list-group-item list-group-item-action">Venison Hot Sausage (Bulk)</a>
+    <a href="{{url_for('item5_pounds.item5_info')}}" class="list-group-item list-group-item-action">Venison Breakfast Sausage (Link)</a>
+    <a href="{{url_for('item6_pounds.item6_info')}}" class="list-group-item list-group-item-action">Venison Sweet Sausage (Link)</a>
+    <a href="{{url_for('item7_pounds.item7_info')}}" class="list-group-item list-group-item-action">Venison Hot Sausage (Link)</a>
+</div>
+<div>
+    <a style="margin:10px;" href="{{url_for('item_delete.order_review')}}" class="btn btn-secondary active" role="button" aria-pressed="true">Review Order</a>
+</div>
+{% endblock %}

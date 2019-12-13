@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+{#This is the template that shows the order review#}
+<div class="jumbotron" style="padding-top:30px;padding-bottom:30px;">
+    <h3 style="text-decoration:underline;">Malafy's Meat Processing LLC</h3>
+    <h4>Order Review:</h4>
+    <p style="margin:0px;padding:0px;">Below you will see a list of the items you ordered.</p>
+    <p style="margin:0px;padding:0px;">Press continue if you would like to see the order summary.</p>
+    <p style="margin:0px;padding:0px;">Type in the item name if you would like to remove it.</p>
+    <p style="margin:0px;padding:0px;">Or type Cancel in the input box to discard you order.</p>
+    <p style="margin:0px;padding:0px;color:rgb(165, 28, 28)">PLEASE NOTE: Choosing 'cancel' will discard your entire order! </p>
+</div>
+<div>
+{% for item in cart_list %}
+    <h4 style="margin-left:30px">Item Name: {{item}}</h4>
+    <br>
+{% endfor %}
+    <form method='POST' style="margin-left:30px;marign-top:0px;">
+        {{ form.hidden_tag() }}
+        {{form.item_delete.label}}
+        {{form.item_delete()}}
+        {{form.submit()}}
+    </form>
+    <a style="margin-left:30px" href="{{url_for('item_delete.order_review')}}" class="btn btn-outline-secondary active" role="button" aria-pressed="true" data-toggle="modal" data-target="#confirm_order">Order Summary</a>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="confirm_order">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Order</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you are finished with your order?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Not Yet</button>
+        <a  href="{{url_for('order_summary.summary')}}" class="btn btn-success active" role="button" aria-pressed="true">Yes, Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+

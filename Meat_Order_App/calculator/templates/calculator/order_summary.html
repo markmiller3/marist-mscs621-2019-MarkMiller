@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron" style="padding-top:30px;padding-bottom:30px;">
+    <h3 style="text-decoration:underline;">Malafy's Meat Processing LLC</h3>
+    <h4 style="margin-bottom:0px;padding-bottom:0px;">Order Summary:</h4>
+    <p style="margin-top:5px;padding-top:0px;">Below is all the information regarding your order</p>
+    <p style="font-weight:bold;"> Total Price: ${{total_price}}</p>
+    <p style="font-weight:bold"> Meat Remaining: {{remaining_pounds}} lbs</p>
+</div>
+<div style="margin-left:30px;padding-top:0px;">
+   <h3 style="text-decoration:underline;">Item List:</h3>
+    {% for key, values in item1_dict.items() %}
+    <ul style="margin:0px;padding:0px;">
+       <li>Item {{key}}: {{values}}</li>
+    </ul>
+    {% endfor %}
+    <br>
+    {% for key, values in item2_dict.items() %}
+    <ul>
+       <li>Item {{key}}: {{values}}</li>
+    </ul>
+    {% endfor %}
+    {% for key, values in item3_dict.items() %}
+    <ul>
+       <li>Item {{key}}: {{values}}</li>
+    </ul>
+    {% endfor %}
+    {% for key, values in item4_dict.items() %}
+    <ul>
+       <li>Item {{key}}: {{values}}</li>
+    </ul>
+    {% endfor %}
+    {% for key, values in item5_dict.items() %}
+    <ul>
+       <li>Item {{key}}: {{values}}</li>
+    </ul>
+    {% endfor %}
+    {% for key, values in item6_dict.items() %}
+    <ul>
+       <li>Item {{key}}: {{values}}</li>
+    </ul>
+    {% endfor %}
+    {% for key, values in item7_dict.items() %}
+    <ul>
+       <li>Item {{key}}: {{values}}</li>
+    </ul>
+    {% endfor %}
+</div>
+<div>
+    <form method="POST" style="margin-left:30px;padding:0px;">
+        {{ form.hidden_tag() }}
+        <p>If you would like to start over press the button.</p>
+        {{form.submit()}}
+    </form>
+</div>
+
+{% endblock %}

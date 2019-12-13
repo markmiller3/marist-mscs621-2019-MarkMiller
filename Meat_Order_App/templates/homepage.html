@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    #instructions {
+        margin-right: 30px;
+        margin-left: 30px;
+              }
+    #hd1 {
+        text-decoration: underline;
+    }
+</style>
+<div class="jumbotron" style="padding-top:30px;padding-bottom:30px;">
+    <h1 style="text-decoration: underline;">Malafy's Meat Processing LLC</h1>
+    <p>Welcome to the homepapge. Here you can access the calculations for your meat order by pressing the button below.</p>
+    <a href="http://www.malafysmeatprocessing.com/" class="link">Malafays Website</a>
+    <hr>
+    <a href="{{url_for('total_pounds.total_pounds')}}" class="btn btn-secondary active" role="button" aria-pressed="true">Begin Order</a>
+</div>
+<div id="instructions">
+    <h5>This website is designed to do all the hard work of calculating your order of meat for Malafays</h5>
+    <br>
+    <h6 id="hd1">Instructions follow as below:</h6>
+    <ol>
+        <li>Click to Begin Order</li>
+        <li>Enter the amount of pounds you venison you have</li>
+        <li>Click the item you would like to add, and enter the amount of that item you would like</li>
+        <li>Once you finish adding the items click item review at the bottom of the item list page</li>
+        <li>The Order Review page will give you directions on any last minute changes</li>
+        <li>Once you click submit on Order Review, you will be given a summary of your order</li>
+        <li>The order summary includes Total Price, Price per item and pounds per item</li>
+        <li>After your finished you can reset if you want to complete another order</li>
+    </ol>
+</div>
+
+{% endblock %}

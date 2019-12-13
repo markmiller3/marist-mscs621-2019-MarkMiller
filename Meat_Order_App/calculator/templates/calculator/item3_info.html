@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+{# This block of code below pops up a message saying that you do not have enough meat left #}
+    {% for mess in get_flashed_messages() %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <h4 class="alert-heading">Not enough Meat!</h4>
+            {{mess}}
+            <p> you only have {{session['remaining_pounds']}} pounds of meat left.</p>
+    {% endfor %}
+        </div>
+<div class="jumbotron" style="padding-top:30px;padding-bottom:30px;">
+    <h1>{{item3_name}}</h1>
+    <h3>Price (per pound): ${{item3_price}}0</h3>
+    <p>Purchases must be made in sets of 5 pounds</p>
+    <br>
+    <form method='POST'>
+        {{ form.hidden_tag() }}
+        {{form.item3_pounds.label}}
+        {{form.item3_pounds()}}
+        {{form.submit()}}
+    </form>
+</div>
+<div>
+    {# button to return to item list and cancel order in progress #}
+    <a style="margin-left:30px" href="{{url_for('products')}}" class="btn btn-secondary active" role="button" aria-pressed="true">Return Item List</a>
+</div>
+
+{% endblock %}

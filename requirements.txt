@@ -1,0 +1,5 @@
+flask
+flask-WTF
+Jinja2
+requests
+WTForms

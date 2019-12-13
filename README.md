@@ -195,6 +195,17 @@ The output will look similar to:
 ```shell
 docker container ls
 ```
+6. To pause a docker container issue
+```shell
+docker container pause container-name
+```
+> This will pause the container with the given container-name
+
+7. To stop a docker container execute
+```shell
+docker container stop container-name
+```
+> This will stop the running container with the given container-name
 
 #### Pushing the Docker Image to Dockerhub
 1. Once we created the image, we can view the image by running

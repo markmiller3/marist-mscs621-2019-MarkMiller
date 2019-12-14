@@ -1,8 +1,8 @@
  # Malafy's Meat Processing LLC Order Assistant Application
  ------------------------------------------------------------------
-This application is desgined to aid a customer of Malafys Meat Processing with providing a simple and easy way to order meat. The project idea was given to me by a fellow professor who wanted an easier way ordering his meat. Handling high amounts of meat, makes the processing frustrating and tedious. 
+This application is desgined to aid a customer of Malafys Meat Processing by providing a simple and easy way to order meat. The project idea was given to me by a fellow professor who wanted an easier way of ordering the large quantities of meat he had. Handling large quanuties of meat makes it a tedious process by hand. Thats where the Malafy's Meat Order Assistant helps out.  
  
- > Malafys Meat Processing has has a complex way for customers to order meat. The interactive web application was geared to simplifys the ordering process. This web app was built from stratch using Python Flask and HTML. It utilizies multiple different modules to complete the tasks.
+ > Malafys Meat Processing has has a complex way for customers to order meat. The interactive web application was geared toward simplifying the ordering process. This web app was built from stratch using Python Flask and HTML. It utilizies multiple different modules to complete the many tasks within the application.
  
  >The web application completes task such as calculating the total price, price per item, number of pounds ordered, and supply an easy to understand summary of your order. 
  
@@ -30,13 +30,13 @@ Docker is used throught this setup, please ensure it is installed on your device
 
 ------------------------------------------------------------------
 ## Configurations
-### The first step in recreating this project is to setup a the Database on IBM Cloud Cloudant
+### The first step in recreating this project is to setup a Database on IBM Cloud Cloudant
 
-***Note: This is only if you want to recreate the project, if you are downloading the provided one you can skip to the deployment section.***
+***Note: This is only if you want to recreate the project, if you are downloading the provided repository you can skip to the deployment section.***
 
-You can follow a guide [here](https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-serverless-api-webapp)
+If you want to follow a complete guide on creating a Cloudant Database, follow the guide [here](https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-serverless-api-webapp)
 
->The guide above will provide a high level overiew of creating the cloudant database, creating the neccessary functions, and creating the api. Below is a quick overview of the guide.
+>The guide above will provide a high level overview of creating the cloudant database, creating the neccessary functions, and creating the api. Below is a quick overview of this guide.
 
 #### IBM Cloudant and Functions Configuration
 Creating the Cloudant Database:
@@ -49,7 +49,7 @@ Creating the Cloudant Database:
 3. Create the Cloudant Database
 
 Create Service Credentials for Database:
-1. Under the Database we just created, like on **Service Credentials**
+1. Under the Database we just created, click on **Service Credentials**
 2. Click **New Credential**
 3. Click **Add**
 
@@ -58,7 +58,7 @@ Creating a Cloud Function:
 2. On the pane to the left, click **Actions** then **Create**
 3. Create the action with a name like **Prepare-Meat-Items**
 4. Select **Node.js** as the Runtime
-5. Delete the given code and insert the code below 
+5. Delete the given code and insert the code below:
 ```shell
 function main(params) {
   if (!params.id || !params.item_name || params.price) {
@@ -100,7 +100,7 @@ Accessing Database Credentials for Second Action in the Sequence:
 6. Insert **Database** which is the name of the cloudant database
 
 Create Sequence of Actions to Retrive the Entries:
-1. Under **Functions** click **Create** new Node.js action under default package
+1. Under **Functions** click **Create** new **Node.js** action under default package
 2. Create a name for the action like **Meat-Items-Input**
 3. Delete the given code and insert the code below
 ```shell
@@ -118,9 +118,9 @@ Add an Action to a Sequence:
 1. Click **Enclosing Sequences, Add to Sequence** then **Create New**
 2. Give an **Action Name** like **Read-Meat-Items-Sequence**
 3. Click **Create and Add**
-4. Click on the sequence **Read-Meat-Items-Sequence**, we just created
+4. Click on the sequence **Read-Meat-Items-Sequence** we just created
 5. Click **Add**
-6. Under **My Bindings** choose **Meat-Item-Bindind** and click **Add** 
+6. Under **My Bindings** choose **Meat-Item-Binding** and click **Add** 
 7. Click **Add** again
 8. Under **Create New** enter a name like **Format-Meat-Items**, then click **Create and Add**
 9. Click on the **Format-Meat-Items** and replace the code given with the code below
@@ -159,15 +159,15 @@ Create the API:
 13. Select the action **Meat-Items-Sequence**
 14. Save and expose the API
 
-Click [here](https://portal.us-south.apigw.cloud.ibm.com/portal?artifactId=9e1186cf-5f8c-407e-9763-7ba1ed99fffd) for a link to post your entries to the database.
+Click [here](https://portal.us-south.apigw.cloud.ibm.com/portal?artifactId=9e1186cf-5f8c-407e-9763-7ba1ed99fffd) for a insturctions to post your entries to the database.
 
-Please Note: If you create a new database you must replace the API url in the api_call.py file with the new url one you just created.
+Please Note: If you create a new database you must replace the API url in the api_call.py file with the new url you just created.
 
 ----------------------------------------------------------------------------------------
 ## Deployment - Local 
 >This section is going to walkthrough the steps need to deploy the web application locally on your device. This section will also cover posting the container to docker hub.
 
-1. Run a git clone of this repository to get acess to all the required files you will need.
+1. Run a git clone of this repository to get access to all the required files you will need:
 ```shell
 git clone https://markmiller3/marist-mscs621-2019-MarkMiller.git
 ```

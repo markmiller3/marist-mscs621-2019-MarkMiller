@@ -14,7 +14,7 @@ This application is desgined to aid a customer of Malafys Meat Processing by pro
 
 -------------------------------------------------------------------
 ## Architecture Diagram
-![alt key](Architecture_Diagram.png)
+![alt key](Readme_Images/Architecture_Diagram.png)
 
 -------------------------------------------------------------------
 ## Prerequisites

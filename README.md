@@ -304,4 +304,9 @@ kubectl get services
 Below is a sample output from this project
 ![alt key](Readme_Images/kubectl_get_service.png)
 
+Now we can go to the external ip that is given for that container along with the port we exposed the deployment on in order to see our application. This concludes the creation of the kubernetes cluster.
+
+The container where our app is being hosted for this project is running on http://146.148.66.65:5000/.
+
+
 

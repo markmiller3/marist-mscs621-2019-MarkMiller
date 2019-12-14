@@ -14,7 +14,7 @@ This application is desgined to aid a customer of Malafys Meat Processing by pro
 
 -------------------------------------------------------------------
 ## Architecture Diagram
-
+![alt key](Architecture_Diagram.png)
 
 -------------------------------------------------------------------
 ## Prerequisites
@@ -307,6 +307,5 @@ Below is a sample output from this project
 Now we can go to the external ip that is given for that container along with the port we exposed the deployment on in order to see our application. This concludes the creation of the kubernetes cluster.
 
 The container where our app is being hosted for this project is running on http://146.148.66.65:5000/.
-
 
 

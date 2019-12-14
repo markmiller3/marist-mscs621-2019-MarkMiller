@@ -149,7 +149,7 @@ Create the API:
 3. Next to name click **Web Action**, check **Enable as Web Action** and then **Save**
 4. Do the same as above for the sequence **Meat-Items-Sequence**
 5. Go to **APIs** under Functions
-6. Click **Create a Cloud Function API
+6. Click **Create API**
 7. Set the name such as **Meat-Items** and the base path to /Meat-Items
 8. Click **Create operation**
 9. Set path to **/entries** set verb to **GET**
@@ -290,11 +290,11 @@ kubectl create deployment meat-order-app --image=gcr.io/meat-order-application/m
 ```
 > With the creation of the deployment and the image set to the Docker Registry we set, we can now expose the deployment.
 
-13. To expose the deployment we nee to run the command below
+13. To expose the deployment we need to run the command below
 ```shell
 kubectl expose deployment meat-order-app --type LoadBalancer --port 5000 --target-port 5000
 ```
->This is where we actually expose the deployment. We set the type to a loadbalancer which means we are creating a compute engine load balancer for the container. We then specify the intial public port as 5000 and the target port which routes the traffic to port 5000.
+>This is where we expose the deployment. We set the type to a loadbalancer which means we are creating a compute engine load balancer for the container. We then specify the intial public port as 5000 and the target port which routes the traffic to port 5000.
 
 14. Once we expose the deployment we need to run the command to view the services
 ```shell

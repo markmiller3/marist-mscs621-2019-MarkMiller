@@ -302,6 +302,6 @@ kubectl get services
 ```
 >Once this shows the information regarding the clusters we can then access the cluster by utilizing the external ip and the port we specified when we exposed the deployment.
 Below is a sample output from this project
-![alt key]()
+![alt key](Readme_Images/kubectl_get_services.png)
 
 
